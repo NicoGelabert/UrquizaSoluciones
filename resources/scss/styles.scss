@@ -56,6 +56,20 @@ body{
             fill:$primary;
         }
     }
+    .under-construction{
+        background-color: $primary;
+        h1{
+            @apply text-4xl;
+            color: $white;
+        }
+        h2{
+            @apply text-3xl;
+            color: $white;
+        }
+        .social-icons{
+            color: $white;
+        }
+    }
     header{
         @apply h-auto fixed top-0 w-full block shadow-none;
         background:transparent;

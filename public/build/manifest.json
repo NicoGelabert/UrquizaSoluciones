@@ -2203,50 +2203,14 @@
     "file": "assets/zw-0cf98de0.svg",
     "src": "node_modules/flag-icon-css/flags/4x3/zw.svg"
   },
-  "public/fonts/MountHills.ttf": {
-    "file": "assets/MountHills-884ed14e.ttf",
-    "src": "public/fonts/MountHills.ttf"
-  },
-  "public/fonts/MountHills.woff": {
-    "file": "assets/MountHills-52f67752.woff",
-    "src": "public/fonts/MountHills.woff"
-  },
-  "public/fonts/MountHills.woff2": {
-    "file": "assets/MountHills-1fac4af7.woff2",
-    "src": "public/fonts/MountHills.woff2"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-72c96cb4.css",
+    "file": "assets/app-0c59791d.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-b392c103.js",
+    "file": "assets/app-202cb9ad.js",
     "isEntry": true,
     "src": "resources/js/app.js"
-  },
-  "storage/app/public/iconos/background.svg": {
-    "file": "assets/background-b81fd401.svg",
-    "src": "storage/app/public/iconos/background.svg"
-  },
-  "storage/app/public/img/carrotcake_ingredients_large.webp": {
-    "file": "assets/carrotcake_ingredients_large-0b2d7b4a.webp",
-    "src": "storage/app/public/img/carrotcake_ingredients_large.webp"
-  },
-  "storage/app/public/img/carrotcake_ingredients_small.webp": {
-    "file": "assets/carrotcake_ingredients_small-96790d1a.webp",
-    "src": "storage/app/public/img/carrotcake_ingredients_small.webp"
-  },
-  "storage/app/public/img/chessecake_ingredients_large.webp": {
-    "file": "assets/chessecake_ingredients_large-d9fcce37.webp",
-    "src": "storage/app/public/img/chessecake_ingredients_large.webp"
-  },
-  "storage/app/public/img/chessecake_ingredients_small.webp": {
-    "file": "assets/chessecake_ingredients_small-d0cc1c0c.webp",
-    "src": "storage/app/public/img/chessecake_ingredients_small.webp"
-  },
-  "storage/app/public/img/white-paper-texture.webp": {
-    "file": "assets/white-paper-texture-8cf70690.webp",
-    "src": "storage/app/public/img/white-paper-texture.webp"
   }
 }
