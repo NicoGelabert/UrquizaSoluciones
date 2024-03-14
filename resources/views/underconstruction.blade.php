@@ -37,9 +37,5 @@
     </body>
 </html>
 <style>
-    .enconstruccion svg{
-        height: auto;
-        width: 16rem;
-        fill: #6c4852;
-    }
+    
 </style>

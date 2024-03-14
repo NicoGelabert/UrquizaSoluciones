@@ -66,6 +66,9 @@ body{
             @apply text-3xl;
             color: $white;
         }
+        svg{
+            @apply h-48;
+        }
         .social-icons{
             color: $white;
         }
