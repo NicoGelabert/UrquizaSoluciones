@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\Product;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Categories extends Model
+class Service extends Model
 {
     use HasFactory;
     use HasSlug;
 
-    protected $fillable = ['name', 'icon'];
+    protected $fillable = ['name', 'description', 'second_description', 'icon', 'image' ];
 
     public function getSlugOptions() : SlugOptions
     {
@@ -27,8 +27,8 @@ class Categories extends Model
         return 'slug';
     }
 
-    public function products()
+    public function projects()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Project::class);
     }
 }

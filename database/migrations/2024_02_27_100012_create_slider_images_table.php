@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('headline', 20);
             $table->string('description', 200);
             $table->string('link', 200);
-            $table->string('background', 200);
+            $table->string('background', 200)->nullable();
             $table->timestamps();
         });
     }

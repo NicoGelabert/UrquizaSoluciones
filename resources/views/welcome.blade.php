@@ -29,11 +29,11 @@
                 <img src="{{ asset('storage/img/muffins.png') }}" alt="">
             </div>
             <div id="categorybuttons">
-                @foreach ($categories as $category)
-                    <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
+                @foreach ($services as $service)
+                    <a href="{{ route('services.view', $service->slug) }}" class="" alt="">
                         <div class="h-full flex flex-wrap flex-col justify-evenly px-2 lg:px-4">
-                            <img src="{{$category -> icon}}" alt="{{$category -> name}}">
-                            <h5>{{$category -> name}}</h5>
+                            <img src="{{$service -> icon}}" alt="{{$service -> name}}">
+                            <h5>{{$service -> name}}</h5>
                         </div>
                     </a>
                 @endforeach
@@ -48,34 +48,22 @@
             </div>
             <div class="splide__track mx-8">
                 <ul class="splide__list">
-                    @foreach($products as $product)
-                    <li x-data="productItem({{ json_encode([
-                        'id' => $product->id,
-                        'slug' => $product->slug,
-                        'image' => $product->image,
-                        'title' => $product->title,
-                        'price' => $product->price,
-                        'addToCartUrl' => route('cart.add', $product)
-                        ]) }})" class="splide__slide border-transparent overflow-hidden rounded-lg bg-white underline-hover">
-                        <a href="{{ route('product.view', [$product->category?->slug, $product->slug ]) }}" class="aspect-w-3 aspect-h-2 block">
-                            <img src="{{ $product->image }}" alt="{{$product->title}}" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
+                    @foreach($projects as $project)
+                    <li class="splide__slide border-transparent overflow-hidden rounded-lg bg-white underline-hover">
+                        <a href="{{ route('project.view', [$project->service?->slug, $project->slug ]) }}" class="aspect-w-3 aspect-h-2 block">
+                            <img src="{{ $project->image }}" alt="{{$project->title}}" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
                             <div class="p-4 card-listing">
-                                <div class="flex justify-center w-full gap-4">
-                                    @foreach ($product->alergens as $alergen)
-                                        <img src="{{ url($alergen?->icon) }}" alt="{{ $alergen?->name }}">
-                                    @endforeach
-                                </div>
                                 <div class="flex flex-col items-center justify-center">
-                                    <p class="small category_subtitle">{{$product->category?->slug}}</p>
+                                    <p class="small category_subtitle">{{$project->service?->slug}}</p>
                                     <h4 class="w-fit">
-                                        {{$product->title}}
+                                        {{$project->title}}
                                     </h4>
                                 </div>
                                 <div class="relative flex justify-center">
-                                    <span class="price">${{$product->price}}</span>
+                                    <span class="price">${{$project->location}}</span>
                                 </div>
                                 <div class="relative flex">
-                                    <p class="small">{{$product->description}}</p>
+                                    <p class="small">{{$project->description}}</p>
                                 </div>
                             </div>
                         </a>

@@ -45,29 +45,41 @@ body{
         color: $secondary-darkest;
     }
     .logo{
+        h4{
+            color: $primary;
+            @apply pl-4 leading-5;
+        }
         svg{
-            @apply w-12 md:w-24 h-auto;
+            @apply w-auto h-16;
             fill:$primary;
         }
     }
     .logo-hamburguer{
+        @apply w-full;
+        h4{
+            color: $primary;
+            transform: scale(1.5);
+            @apply leading-5;
+        }
         svg{
-            @apply w-36 h-auto;
+            @apply h-16 w-auto;
             fill:$primary;
+            transform: scale(1.5);
         }
     }
     .under-construction{
         background-color: $primary;
-        h1{
-            @apply text-4xl;
-            color: $white;
-        }
         h2{
             @apply text-3xl;
             color: $white;
         }
+        h4{
+            color: $white;
+            @apply leading-10 text-4xl;
+        }
         svg{
-            @apply h-48;
+            @apply h-32 w-auto;
+            fill:$white;
         }
         .social-icons{
             color: $white;
@@ -114,8 +126,19 @@ body{
     // Function to show header according to scroll view
     .scrolled-bottom{
         @apply shadow-md;
-        background: $white;
-        color: $black;
+        background: $primary;
+        color: $white;
+        .logo{
+            h4{
+                color: $white;
+            }
+            svg{
+                fill:$white;
+            }
+        }
+        .openbtn span{
+            background: $white;
+        }
     }
     // Function to show header according to scroll view
     // Hamburguer Menu
@@ -508,19 +531,23 @@ body{
         color: $secondary;
         .footer-container{
             @apply pt-16 pb-8 justify-between flex-wrap;
-            .logo {
-                @apply mx-8 sm:mx-0;
+            .logo{
+                h4{
+                    color: $white;
+                }
+                svg{
+                    fill:$white;
+                }
             }
             a{
                 @apply flex items-center justify-center;
-                color: $secondary;
+                color: $white;
             }
             a:hover{
                 color: $secondary-lighter;
             }
             svg{
                 @apply h-28 w-auto;
-                fill: $secondary;
                 margin-left: 0;
             }
             .footer-menu > div {

@@ -6,7 +6,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,10 +29,15 @@ Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/welcome',[WelcomeController::class, 'index'])->name('welcome');
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
+    Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+    Route::get('/services/{service:slug}', [ServiceController::class, 'view'])->name('services.view');
+
+    Route::get('/services/{service:slug}/{project:slug}', [ProjectController::class, 'view'])->name('project.view');
+
     // Route::get('/todo-lo-rico', [ProductController::class, 'index'])->name('product.index');
-    Route::get('/menu', [CategoriesController::class, 'index'])->name('categories.index');
-    Route::get('/menu/{categories:slug}', [CategoriesController::class, 'view'])->name('categories.view');
-    Route::get('/menu/{categories:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
+    // Route::get('/menu', [CategoriesController::class, 'index'])->name('categories.index');
+    // Route::get('/menu/{categories:slug}', [CategoriesController::class, 'view'])->name('categories.view');
+    // Route::get('/menu/{categories:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
     
     
     Route::prefix('/cart')->name('cart.')->group(function () {

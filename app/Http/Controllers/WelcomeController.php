@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\SliderImage;
-use App\Models\Categories;
-use App\Models\Product;
+use App\Models\Service;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -12,13 +12,13 @@ class WelcomeController extends Controller
     public function index()
     {
         $slider_images = SliderImage::all();
-        $categories = Categories::all();
-        $products = Product::query()
+        $services = Service::all();
+        $projects = Project::query()
             ->where('published', '=', 1)
-            ->orderBy('updated_at', 'desc')
+            ->orderBy('id', 'desc')
             ->paginate(4);
             return view('welcome', [
-            'products' => $products, 'categories' => $categories, 'slider_images' => $slider_images
+            'projects' => $projects, 'services' => $services, 'slider_images' => $slider_images
         ]);
     }
 }

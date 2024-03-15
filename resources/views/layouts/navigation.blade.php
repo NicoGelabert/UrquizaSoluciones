@@ -23,7 +23,7 @@
             <ul class="flex flex-col gap-y-4 items-center">
                 <li>
                     <a
-                        href="{{ route('categories.index') }}"
+                        href=""
                         class="relative flex items-center justify-between py-2 px-3 transition-colors underline-hover"
                     >
                         <div class="flex items-center">
@@ -272,7 +272,7 @@
             </li>
             <li>
                 <a
-                    href="{{ route('categories.index') }}"
+                    href="#"
                     class="relative inline-flex items-center py-navbar-item px-navbar-item underline-hover"
                 >
                     <svg
