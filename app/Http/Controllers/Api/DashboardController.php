@@ -10,6 +10,7 @@ use App\Http\Resources\Dashboard\OrderResource;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Project;
 use App\Traits\ReportTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -29,9 +30,9 @@ class DashboardController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function activeProducts()
+    public function activeProjects()
     {
-        return Product::where('published', '=', 1)->count();
+        return Project::where('published', '=', 1)->count();
     }
 
     /**

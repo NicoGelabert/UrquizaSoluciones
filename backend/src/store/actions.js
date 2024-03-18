@@ -98,6 +98,67 @@ export function deleteProduct({commit}, id) {
   return axiosClient.delete(`/products/${id}`)
 }
 
+// Projects
+export function getProjects({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
+  commit('setProjects', [true])
+  url = url || '/projects'
+  const params = {
+    per_page: state.projects.limit,
+  }
+  return axiosClient.get(url, {
+    params: {
+      ...params,
+      search, per_page, sort_field, sort_direction
+    }
+  })
+    .then((response) => {
+      commit('setProjects', [false, response.data])
+    })
+    .catch(() => {
+      commit('setProjects', [false])
+    })
+}
+
+export function getProject({commit}, id) {
+  return axiosClient.get(`/projects/${id}`)
+}
+
+export function createProject({commit}, project) {
+  if (project.image instanceof File) {
+    const form = new FormData();
+    form.append('title', project.title);
+    form.append('image', project.image);
+    form.append('description', project.description || '');
+    form.append('published', project.published ? 1 : 0);
+    form.append('location', project.location);
+    project = form;
+  }
+  return axiosClient.post('/projects', project)
+}
+
+export function updateProject({commit}, project) {
+  const id = project.id
+  if (project.image instanceof File) {
+    const form = new FormData();
+    form.append('id', project.id);
+    form.append('title', project.title);
+    form.append('image', project.image);
+    form.append('description', project.description || '');
+    form.append('published', project.published ? 1 : 0);
+    form.append('location', project.location);
+    form.append('_method', 'PUT');
+    project = form;
+  } else {
+    project._method = 'PUT'
+  }
+  return axiosClient.post(`/projects/${id}`, project)
+}
+
+export function deleteProject({commit}, id) {
+  return axiosClient.delete(`/projects/${id}`)
+}
+
+// End Projects
 export function getUsers({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
   commit('setUsers', [true])
   url = url || '/users'
