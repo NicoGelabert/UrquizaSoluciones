@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\UserController;
@@ -26,6 +27,7 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
 
     Route::apiResource('products', ProductController::class);
+    Route::apiResource('services', ServiceController::class);
     Route::apiResource('projects', ProjectController::class);
     Route::apiResource('users', UserController::class);
     Route::apiResource('customers', CustomerController::class);

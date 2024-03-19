@@ -7,6 +7,7 @@ import AppLayout from '../components/AppLayout.vue'
 import store from "../store";
 import NotFound from "../views/NotFound.vue";
 import Products from "../views/Products/Products.vue";
+import Services from "../views/Services/Services.vue";
 import Projects from "../views/Projects/Projects.vue";
 import Users from "../views/Users/Users.vue";
 import Customers from "../views/Customers/Customers.vue";
@@ -41,6 +42,11 @@ const routes = [
         path: 'products',
         name: 'app.products',
         component: Products
+      },
+      {
+        path: 'services',
+        name: 'app.services',
+        component: Services
       },
       {
         path: 'projects',

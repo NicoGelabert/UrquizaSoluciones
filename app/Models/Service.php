@@ -2,33 +2,29 @@
 
 namespace App\Models;
 
-use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Service extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     use HasSlug;
 
-    protected $fillable = ['name', 'description', 'second_description', 'icon', 'image' ];
+    protected $fillable = ['title', 'description', 'image', 'image_mime', 'image_size', 'published', 'created_by', 'updated_by', ];
 
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
 
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    public function projects()
-    {
-        return $this->hasMany(Project::class);
     }
 }

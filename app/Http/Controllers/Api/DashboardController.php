@@ -11,6 +11,7 @@ use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Project;
+use App\Models\Service;
 use App\Traits\ReportTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -33,6 +34,11 @@ class DashboardController extends Controller
     public function activeProjects()
     {
         return Project::where('published', '=', 1)->count();
+    }
+
+    public function activeServices()
+    {
+        return Service::where('published', '=', 1)->count();
     }
 
     /**

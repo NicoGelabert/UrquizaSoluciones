@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->text('title', 20);
+            $table->text('title', 50);
             $table->longText('description')->nullable();
             $table->text('location', 100);
             $table->string('image', 2000)->nullable();
             $table->string('image_mime')->nullable();
             $table->integer('image_size')->nullable();
-            $table->text('slug', 20);
+            $table->text('slug', 50);
             $table->unsignedBigInteger('service_id')->foreignId('service_id')->references('id')->on('services')->nullable();
             $table->boolean('published')->default(false);
             $table->timestamps();
