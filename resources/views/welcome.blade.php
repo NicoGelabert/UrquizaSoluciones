@@ -17,7 +17,7 @@
                             </div>
                             <h2 class="font-bold">{{$slider_image -> headline}}</h2>
                             <div class="flex gap-3 justify-center">
-                                <a href="{{$slider_image -> link}}" class="btn-secondary">
+                                <a href="#" class="btn-secondary">
                                 {{__('Ver ')}}{{$slider_image -> headline}} 
                                 </a>
                             </div>
@@ -35,7 +35,7 @@
             <h2 class="font-bold text-center my-8">Servicios</h2>
             <div id="servicesbuttons">
                 @foreach ($services as $service)
-                <a href="{{ route('services.view', $service->slug) }}" style="background-image:url({{$service -> image}})">
+                <a href="#" style="background-image:url({{$service -> image}})">
                     <div class="servicesContent">
                         <img src="{{$service -> icon}}" alt="{{$service -> title}}">
                         <h3>{{$service -> title}}</h3>
