@@ -50,7 +50,7 @@ document.addEventListener("alpine:init", async () => {
           this.interval = null;
         }
       }, 30);
-    },
+    }, 
   }));
 
   Alpine.data("productItem", (product) => {
@@ -94,34 +94,34 @@ document.addEventListener("alpine:init", async () => {
 
 Alpine.start();
 
-new Splide( '#image-carousel', {
-  type   : 'loop',
-  perPage: 4,
-  perMove: 1,
-  gap    : '0.5rem',
-  autoplay: false,
-  pagination: true,
-  omitEnd  : true,
-  autoWidth: false,
-  breakpoints: {
-    1280: {
-      perPage:4,
-      gap: '1rem',
-    },
-    800: {
-      perPage: 3,
-      gap    : '.7rem',
-    },
-    640: {
-      perPage: 2,
-      gap    : '.7rem',
-    },
-    480: {
-      perPage: 1,
-      gap    : '.5rem',
-    },
-  },
-}).mount();
+// new Splide( '#image-carousel', {
+//   type   : 'loop',
+//   perPage: 4,
+//   perMove: 1,
+//   gap    : '0.5rem',
+//   autoplay: false,
+//   pagination: true,
+//   omitEnd  : true,
+//   autoWidth: false,
+//   breakpoints: {
+//     1280: {
+//       perPage:4,
+//       gap: '1rem',
+//     },
+//     800: {
+//       perPage: 3,
+//       gap    : '.7rem',
+//     },
+//     640: {
+//       perPage: 2,
+//       gap    : '.7rem',
+//     },
+//     480: {
+//       perPage: 1,
+//       gap    : '.5rem',
+//     },
+//   },
+// }).mount();
 
 document.addEventListener('DOMContentLoaded', function () {
   // Tu código de inicialización de Splide aquí
@@ -138,16 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
     interval: 5000,
     speed: 1000,
     width: '100%',
-    breakpoints: {
-      // 800: {
-      // },
-      640: {
-        height:'auto',
-      },
-      // 480: {
-      //   perPage: 1,
-      // },
-    },
   }).mount();
   
   splideImages.on('move', function () {

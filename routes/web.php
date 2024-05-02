@@ -40,12 +40,14 @@ Route::middleware(['guestOrVerified'])->group(function () {
     // Route::get('/menu/{categories:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
     
     
-    Route::prefix('/cart')->name('cart.')->group(function () {
-        Route::get('/', [CartController::class, 'index'])->name('index');
-        Route::post('/add/{product:slug}', [CartController::class, 'add'])->name('add');
-        Route::post('/remove/{product:slug}', [CartController::class, 'remove'])->name('remove');
-        Route::post('/update-quantity/{product:slug}', [CartController::class, 'updateQuantity'])->name('update-quantity');
-    });
+    // Route::prefix('/cart')->name('cart.')->group(function () {
+    //     Route::get('/', [CartController::class, 'index'])->name('index');
+    //     Route::post('/add/{product:slug}', [CartController::class, 'add'])->name('add');
+    //     Route::post('/remove/{product:slug}', [CartController::class, 'remove'])->name('remove');
+    //     Route::post('/update-quantity/{product:slug}', [CartController::class, 'updateQuantity'])->name('update-quantity');
+    // });
+    Route::get('/subscribe', [SubscriptionController::class, 'create'])->name('subscribe.create');
+    Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');
 });
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/profile', [ProfileController::class, 'view'])->name('profile');

@@ -2204,13 +2204,17 @@
     "src": "node_modules/flag-icon-css/flags/4x3/zw.svg"
   },
   "resources/css/app.css": {
-    "file": "assets/app-2d82741c.css",
+    "file": "assets/app-040eda11.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-202cb9ad.js",
+    "file": "assets/app-6ead9324.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "storage/app/public/img/destination.png": {
+    "file": "assets/destination-0e35f6ef.png",
+    "src": "storage/app/public/img/destination.png"
   }
 }

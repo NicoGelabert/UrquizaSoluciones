@@ -2,6 +2,10 @@
 @use './animations/animations' as *;
 body{
     background-color: $gray;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #D0CCD0;
+    border-radius: 0;
     h1, h2, h3, h4, h5, h6{
         font-family: $primary-font;
         letter-spacing: 0.025em;
@@ -55,16 +59,15 @@ body{
         }
     }
     .logo-hamburguer{
-        @apply w-full;
+        @apply w-full flex justify-center;
+        transform: scale(1.5);
         h4{
             color: $primary;
-            transform: scale(1.5);
             @apply leading-5;
         }
         svg{
             @apply h-16 w-auto;
             fill:$primary;
-            transform: scale(1.5);
         }
     }
     .under-construction{
@@ -126,18 +129,9 @@ body{
     // Function to show header according to scroll view
     .scrolled-bottom{
         @apply shadow-md;
-        background: $primary;
-        color: $white;
-        .logo{
-            h4{
-                color: $white;
-            }
-            svg{
-                fill:$white;
-            }
-        }
+        background: $gray;
         .openbtn span{
-            background: $white;
+            background: $primary;
         }
     }
     // Function to show header according to scroll view
@@ -205,7 +199,7 @@ body{
     .btn-primary{
         @apply py-2 px-6 rounded-full shadow-md transition-colors uppercase tracking-wide text-sm text-center; 
         background-color: $primary;
-        color: $secondary;
+        color: $white;
     }
     .btn-primary:hover{
         background-color: $primary-darker;
@@ -229,105 +223,111 @@ body{
         background-color: $secondary-darkest;
         color: $primary-darker;
     }
-    #categorybuttons{
-        @apply w-full md:w-1/2 lg:w-2/5 flex flex-wrap p-2 justify-evenly gap-5;
-        a{
-            div{
-                @apply rounded-lg;
-            }
-            @apply w-2/5 rounded-lg p-0 lg:gap-5 aspect-square;
-            img{
-                @apply w-auto max-h-[40%] lg:max-h-[60%];
-            }
-            h5{
-                @apply normal-case leading-6;
-            }
-            .svgcolor{
-                fill: aquamarine;
+    .services{
+        @apply my-12;
+        #servicesbuttons{
+            @apply flex flex-col md:flex-row mx-auto gap-4 px-4 max-w-screen-lg;
+            a{
+                @apply w-full md:w-1/3 rounded-3xl bg-cover bg-center;
+                .servicesContent{
+                    @apply flex md:flex-col items-center justify-between h-36 md:h-48 px-4 py-8 relative;
+                    img{
+                        @apply h-12 w-12 z-10;
+                        fill: #fafdff;
+                    }
+                    h3{
+                        @apply md:text-center z-10 font-semibold;
+                        color: $primary;
+                    }
+                }
+                .servicesContent::before{
+                    @apply h-full left-0 top-0 absolute w-full rounded-3xl;
+                    background:rgba(229, 229, 229, 0.6);
+                    content:"";
+                }
             }
         }
     }
     //buttons
     // Hero Banner
     #hero_banner{
-        background: url('/storage/app/public/img/white-paper-texture.webp');
-        background-position: center;
-        background-size: contain;
-        // .splide__pagination{
-        //     @apply justify-evenly;
-        //     li{
+        @apply mx-auto;
+        h2, p{
+            color: $white;
+        }
+        .btn-secondary{
+            background-color: $secondary-lighter;
+            color: $primary ;
+        }
+        .text-description{
+            background-color: rgba(6, 37, 90, .2);
+            img{
+                fill: $white;
+                height: auto;
+                width: 20px;
+            }
+        }
+        .hero_banner_content{
+            background-position: center;
+            background-size: cover;
+            border-radius: 1.5rem;
+            height: 70vh;
+        }
+        .hero_banner_content::before{
+            @apply rounded-3xl;
+            background-color: #06255a;
+            content: "";
+            display: block;
+            height: 100%;
+            opacity: 0.5;
+            position: absolute;
+            width: -webkit-fill-available;;
+        }
+        .splide__pagination{
+            @apply gap-4 relative bottom-0 my-4;
+            li{
+                @apply flex flex-col items-center;
+            }
+            .splide__pagination__page{
+                background-color: $primary;
+                height: 15px;
+                width: 15px;
+            }
+            .splide__pagination__page.is-active{
+                background-color: $secondary;
+                transform: scale(2);
+            }
+        }
+        /* Estilos para los puntos de paginación */
+        /* Estilos para los puntos de paginación */
+        // .splide__pagination {
+        //     @apply relative flex justify-between list-none w-[90%] md:w-2/3 p-0 bottom-8;
+        //     li {
         //         @apply flex flex-col items-center gap-2;
-        //     }
-        //     .splide__pagination__page{
-        //         background-color: $secondary;
-        //     }
-        //     .splide__pagination__page.is-active{
-        //         background-color: $primary;
+        //         span{
+        //             @apply text-sm;
+        //             color: $primary;
+        //         }
+        //         button {
+        //             @apply rounded-full border-0 w-3 h-3 opacity-100;
+        //             background-color: $secondary-darker;
+        //         }
+        //         .is-active{
+        //             background-color: $primary;
+        //         }
         //     }
         // }
-        /* Estilos para los puntos de paginación */
-/* Estilos para los puntos de paginación */
-        .splide__pagination {
-            @apply relative flex justify-between list-none w-[90%] md:w-2/3 p-0 bottom-8;
-            li {
-                @apply flex flex-col items-center gap-2;
-                span{
-                    @apply text-sm;
-                    color: $primary;
-                }
-                button {
-                    @apply rounded-full border-0 w-3 h-3 opacity-100;
-                    background-color: $secondary-darker;
-                }
-                .is-active{
-                    background-color: $primary;
-                }
-            }
-        }
-        .splide__pagination:before {
-            background: rgb(36,227,164);
-            background: linear-gradient(90deg, rgba(36,227,164,0) 0%, rgba(36,227,164,1) 10%, rgba(36,227,164,1) 50%, rgba(36,227,164,1) 90%, rgba(36,227,164,0) 100%);
-            content: "";
-            @apply h-px absolute top-[36px] w-full -z-[1];
-        }
+        // .splide__pagination:before {
+        //     background: rgb(36,227,164);
+        //     background: linear-gradient(90deg, rgba(36,227,164,0) 0%, rgba(36,227,164,1) 10%, rgba(36,227,164,1) 50%, rgba(36,227,164,1) 90%, rgba(36,227,164,0) 100%);
+        //     content: "";
+        //     @apply h-px absolute top-[36px] w-full -z-[1];
+        // }
         
-        .splide__pagination li.splide__pagination__page.is-active button {
-            background-color: #333;
-        }
+        // .splide__pagination li.splide__pagination__page.is-active button {
+        //     background-color: #333;
+        // }
 /* Estilos para los puntos de paginación */
-/* Continua #hero_banner */
-        ul{
-            .cake-1{
-                background: url('/storage/app/public/img/chessecake_ingredients_small.webp');
-                background-position: bottom;
-                background-repeat: no-repeat;
-                background-size: contain !important;
-                @media (min-width: 640px){
-                    background: url('/storage/app/public/img/chessecake_ingredients_large.webp');
-                    background-position: right;
-                    background-repeat: no-repeat;
-                    background-size: contain !important;
-                }
-            }
-            .cake-2{
-                background: url('/storage/app/public/img/carrotcake_ingredients_small.webp');
-                background-position: bottom;
-                background-repeat: no-repeat;
-                background-size: contain !important;
-                @media (min-width: 640px){
-                    background: url('/storage/app/public/img/carrotcake_ingredients_large.webp');
-                    background-position: right;
-                    background-repeat: no-repeat;
-                    background-size: contain !important;
-                }
-            }
-            .cake-3{
-                background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-            }
-            .cake-4{
-                background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-            }
-        }
     }
     // Global clases
     .category_subtitle{
@@ -344,14 +344,48 @@ body{
         color: $primary;
     }
     // Global clases
-    //promo-welcome
-    .promo-welcome{
-        background-color: $secondary;
-        // background-image: url("/storage/app/public/img/gota.png");
-        // background-repeat: no-repeat;
-        // background-size: contain;
-        @apply px-8 sm:px-16;
+    // Promo Welcome
+    .about{
+        .logo{
+            @apply w-full flex justify-start;
+            a{
+                @apply scale-150 origin-bottom-left;
+                h4{
+                    @apply text-left;
+                    color: $primary;
+                }
+                svg{
+                    fill:$primary
+                }
+            }
+        }
+        .whatsapp{
+            @apply flex items-center gap-4 rounded-3xl py-2 px-4 font-bold uppercase w-full md:w-auto justify-between max-w-md;
+            background-color: $primary;
+            color: $gray;
+            .wsIcon{
+                @apply w-auto h-20 rounded-full flex justify-end items-center text-4xl;
+                color: $gray;
+                padding-left: 3px;
+                padding-top: 7px;
+            }
+        }
     }
+    // Fin Promo Welcome
+    //Cobertura
+    .cobertura{
+        iframe{
+            @apply w-full h-[450px];
+        }
+        .cobText::before{
+            @apply bg-no-repeat bg-contain bg-right-bottom top-0 sm:bottom-36 md:bottom-4 right-0 lg:bottom-0 lg:right-24 lg:top-auto w-16 h-16 lg:w-full lg:h-full absolute;
+            background-image: url("/storage/app/public/img/destination.png");
+            content: "";
+            max-height: 200px;
+            opacity: 0.5;
+        }
+    }
+    // Fin Cobertura
     .anchor-btn{
         @apply py-2 sm:px-8 hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm;
         color: $black;
@@ -524,11 +558,23 @@ body{
     .backprofile{
         background-image: none;
     }
+    // PRESUPUESTOS
+    #subscriptionForm{
+        input, select, textarea{
+            border: none;
+            border-bottom: 1px solid rgb(203 213 225);
+            @apply bg-transparent text-slate-400 focus:ring-0;
+        }
+        input::placeholder, textarea::placeholder{
+            @apply text-slate-400;
+        }
+    }
+    // FIN PRESUPUESTOS
     // FOOTER
     footer{
         @apply w-full;
         background-color: $primary;
-        color: $secondary;
+        color: $white;
         .footer-container{
             @apply pt-16 pb-8 justify-between flex-wrap;
             .logo{
@@ -567,7 +613,7 @@ body{
         .post-footer{
             @apply flex flex-col-reverse sm:flex-row items-center justify-between mx-auto pt-8 pb-8 md:py-8 text-xs gap-y-4;
             a{
-                color: $secondary;
+                color: $white;
             }
             a:hover{
                 color: $secondary-lighter;

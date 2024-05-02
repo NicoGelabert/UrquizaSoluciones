@@ -36,7 +36,7 @@
         <div id="body-content">
             @include('layouts.navigation')
 
-            <main class="w-full mx-auto">
+            <main class="w-full px-4 mx-auto lg:max-w-[1536px]">
                 {{ $slot }}
             </main>
             
