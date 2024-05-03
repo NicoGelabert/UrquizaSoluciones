@@ -1,24 +1,22 @@
 
     <x-app-layout>
-        <div id="hero_banner" class="mt-24 flex flex-col splide">
+        <div id="hero_banner" class="flex flex-col splide">
             <div class="w-full h-full relative splide__track">
                 <ul class="splide__list">
                     @foreach ($slider_images as $slider_image)
-                    <li class="splide__slide slider flex flex-col sm:flex-row items-center {{$slider_image -> background}}">
-                        <div class="w-full hero_banner_content flex items-center rounded-3xl" style="background-image:url({{$slider_image -> image}}">
+                    <li class="splide__slide slider flex flex-col sm:flex-row items-center {{$slider_image -> icon}}">
+                        <div class="w-full hero_banner_content flex items-center" style="background-image:url({{$slider_image -> image}}">
                         </div>
-                        <div class="w-full text-center absolute h-full flex flex-col justify-center gap-4"
+                        <div class="absolute w-full lg:max-w-[1280px] mx-auto h-full flex flex-col justify-center items-start gap-4 px-4 top-0 bottom-0 left-0 right-0"
                         >
-                            <div class="flex justify-center w-auto">
-                                <div class="text-description flex items-center py-2 px-4 rounded-xl gap-2">
-                                    <img src="{{ url($slider_image -> background) }}" alt="">
-                                    <p class="text-sm">{{$slider_image -> description}}</p>
-                                </div>
+                            <div class="text-description flex flex-col items-start gap-2">
+                                <img src="{{ $slider_image -> icon }}" alt="">
+                                <h2 class="font-bold">{{$slider_image -> headline}}</h2>
                             </div>
-                            <h2 class="font-bold">{{$slider_image -> headline}}</h2>
+                            <p class="text-sm">{{$slider_image -> description}}</p>
                             <div class="flex gap-3 justify-center">
                                 <a href="#" class="btn-secondary">
-                                {{__('Ver ')}}{{$slider_image -> headline}} 
+                                {{__('Ver Servicio')}}
                                 </a>
                             </div>
                         </div>
@@ -45,17 +43,20 @@
             </div>
         </section>
 
-        <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100 mt-24" id="sobrenosotros" />
+        <div class="lg:max-w-[1536px] px-4 mx-auto">
+            <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100 mt-24" id="sobrenosotros" />
+    
+            <x-promo-welcome />
+    
+            <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100 mt-24" id="zonas" />
+    
+            <x-cobertura />
+    
+            <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100 mt-24" id="contacto" />
+    
+            <x-newsletter />
+        </div>
 
-        <x-promo-welcome />
-
-        <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100 mt-24" id="zonas" />
-
-        <x-cobertura />
-
-        <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100 mt-24" id="contacto" />
-
-        <x-newsletter />
         
     </x-app-layout>
 <style>

@@ -1,6 +1,7 @@
 <div class="subscribe overflow-hidden my-24 flex flex-col md:flex-row gap-8">
     <div class="flex flex-col gap-8 md:w-1/2">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{{__('Confíe en nosotros.')}}</h2>
+        <h2 class="font-bold text-left my-8">{{__('Confíe en nosotros.')}}</h2>
+        <p class="text-lg leading-8 text-gray-400">{{__('Solicite un presupuesto y un asesor se contactará con usted.')}}</p>
         <div class="flex justify-start gap-6 social-icons">
             <a href="https://wa.me/34692372830" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
                 <i class="flex text-2xl leading-none fi fi-brands-whatsapp"></i>
@@ -12,9 +13,8 @@
                 <i class="flex text-2xl leading-none fi fi-rs-map-marker"></i>
             </a>
         </div>
-        <p class="text-lg leading-8 text-gray-400">{{__('Solicite un presupuesto y un asesor se contactará con usted.')}}</p>
     </div>
-    <div class="md:w-1/2">
+    <div class="md:w-1/2 mb-8">
         <form id="subscriptionForm" action="{{ route('subscribe.store') }}" method="post">
             @csrf
             <div class="flex flex-col gap-6 w-full">
@@ -33,7 +33,7 @@
                     <option value="value8">Marbella</option>
                 </select>
                 <textarea id="messageInput" name="message" placeholder="Déjenos un mensaje" rows="4" required class="account w-full"></textarea>
-                <button id="subscribeBtn" type="submit" class="btn-primary w-fit">{{__('Enviar')}}</button>
+                <button id="subscribeBtn" type="submit" class="btn-secondary w-fit">{{__('Enviar')}}</button>
             </div>
         </form>
         <div id="successMessage" style="display: none;">

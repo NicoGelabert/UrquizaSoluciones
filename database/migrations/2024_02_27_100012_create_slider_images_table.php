@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('slider_images', function (Blueprint $table) {
             $table->id();
             $table->string('image', 2000);
-            $table->string('headline', 20);
+            $table->text('smalltext', 100);
+            $table->string('headline', 100);
             $table->string('description', 200);
             $table->string('link', 200);
-            $table->string('background', 200)->nullable();
+            $table->string('icon', 200)->nullable();
             $table->timestamps();
         });
     }

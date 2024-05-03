@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,13 +16,17 @@ return new class extends Migration
             $table->id();
             $table->text('title', 50);
             $table->longText('description')->nullable();
-            $table->text('location', 100);
+            $table->text('smalltext', 200)->nullable();
             $table->string('image', 2000)->nullable();
             $table->string('image_mime')->nullable();
             $table->integer('image_size')->nullable();
             $table->text('slug', 50);
             $table->unsignedBigInteger('service_id')->foreignId('service_id')->references('id')->on('services')->nullable();
             $table->boolean('published')->default(false);
+            $table->foreignIdFor(User::class, 'created_by')->nullable();
+            $table->foreignIdFor(User::class, 'updated_by')->nullable();
+            $table->softDeletes();
+            $table->foreignIdFor(User::class, 'deleted_by')->nullable();
             $table->timestamps();
         });
     }

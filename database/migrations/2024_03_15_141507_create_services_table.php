@@ -15,11 +15,15 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('title', 20);
+            $table->string('icon', 200)->nullable();
+            $table->string('icon_mime')->nullable();
+            $table->integer('icon_size')->nullable();
+            $table->text('smalltext', 200)->nullable();
             $table->longText('description')->nullable();
             $table->string('image', 2000)->nullable();
             $table->string('image_mime')->nullable();
             $table->integer('image_size')->nullable();
-            $table->string('slug', 20);
+            $table->string('slug', 20)->nullable();
             $table->boolean('published')->default(false);
             $table->foreignIdFor(User::class, 'created_by')->nullable();
             $table->foreignIdFor(User::class, 'updated_by')->nullable();
