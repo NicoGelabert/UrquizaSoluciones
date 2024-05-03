@@ -7,7 +7,7 @@
                     <li class="splide__slide slider flex flex-col sm:flex-row items-center {{$slider_image -> icon}}">
                         <div class="w-full hero_banner_content flex items-center" style="background-image:url({{$slider_image -> image}}">
                         </div>
-                        <div class="absolute w-full lg:max-w-[1280px] mx-auto h-full flex flex-col justify-center items-start gap-4 px-4 top-0 bottom-0 left-0 right-0"
+                        <div class="absolute w-full lg:max-w-[1080px] mx-auto h-full flex flex-col justify-center items-start gap-4 px-4 lg:px-16 top-0 bottom-0 left-0 right-0"
                         >
                             <div class="text-description flex flex-col items-start gap-2">
                                 <img src="{{ $slider_image -> icon }}" alt="">
@@ -41,10 +41,10 @@
                 </a>
                 @endforeach
             </div>
+            <div id="sobrenosotros"></div>
         </section>
-
+        
         <div class="lg:max-w-[1536px] px-4 mx-auto">
-            <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100 mt-24" id="sobrenosotros" />
     
             <x-promo-welcome />
     

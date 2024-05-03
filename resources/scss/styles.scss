@@ -50,12 +50,12 @@ body{
     }
     .logo{
         h4{
-            color: $primary;
+            color: $white;
             @apply pl-4 leading-5;
         }
         svg{
             @apply w-auto h-16;
-            fill:$primary;
+            fill:$white;
         }
     }
     .logo-hamburguer{
@@ -91,7 +91,7 @@ body{
     header{
         @apply h-auto fixed top-0 w-full block shadow-none;
         background:transparent;
-        color:$primary;
+        color:$white;
         transition: top 0.3s, background-color 0.3s ease;
     }
     .mobile-menu{
@@ -130,6 +130,15 @@ body{
     .scrolled-bottom{
         @apply shadow-md;
         background: $gray;
+        color: $primary;
+        .logo {
+            h4{
+                color:$primary;
+            }
+            svg{
+                fill:$primary;
+            }
+        }
         .openbtn span{
             background: $primary;
         }
@@ -264,8 +273,11 @@ body{
     // Hero Banner
     #hero_banner{
         @apply mx-auto;
+        h2, p{
+            color: $white;
+        }
         p{
-            @apply font-bold uppercase;
+            @apply font-semibold tracking-wider uppercase;
         }
         .text-description{
             img{
@@ -282,7 +294,7 @@ body{
         .hero_banner_content::before{
             @apply block h-full absolute;
             background: rgb(255,255,255);
-            background: linear-gradient(321deg, rgba(255,255,255,0) 0%, rgba(253,255,150,1) 100%);
+            background: linear-gradient(321deg, rgba(255,255,255,0) 0%, rgba(2,45,81,1) 100%);
             content: "";
             width: -webkit-fill-available;;
         }
@@ -355,10 +367,10 @@ body{
                 @apply scale-150 origin-bottom-left;
                 h4{
                     @apply text-left;
-                    color: $primary;
+                    color: $white;
                 }
                 svg{
-                    fill:$primary
+                    fill:$white;
                 }
             }
         }
