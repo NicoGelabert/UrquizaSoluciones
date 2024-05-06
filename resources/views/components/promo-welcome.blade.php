@@ -33,7 +33,7 @@
                 </div>
                 <div class="flex flex-col gap-2">
                     <dt class="font-semibold leading-none">{{__('Soluciones de fontanería')}}</dt>
-                    <dd class="mt-2 text-gray-500 small-text">Desde la selección del equipo adecuado hasta la instalación impecable y el mantenimiento periódico, nos encargamos de mantener su ambiente fresco y confortable durante todo el año.</dd>
+                    <dd class="mt-2 text-gray-500 small-text">Desde la reparación de fugas hasta la instalación de sistemas de agua caliente, nuestro equipo de fontaneros experimentados está preparado para abordar cualquier desafío con eficiencia y profesionalismo.</dd>
                 </div>
             </div>
         </div>
