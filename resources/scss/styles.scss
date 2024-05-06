@@ -235,9 +235,9 @@ body{
     .services{
         @apply my-12;
         #servicesbuttons{
-            @apply flex flex-col md:flex-row mx-auto gap-4 px-4 max-w-screen-lg;
+            @apply flex flex-col md:flex-row flex-wrap mx-auto gap-4 px-4 max-w-screen-lg;
             a{
-                @apply w-full md:w-1/3 rounded-3xl bg-cover bg-center;
+                @apply w-full md:w-2/5 rounded-3xl bg-cover bg-center;
                 transition: all 300ms;
                 .servicesContent{
                     @apply flex md:flex-col items-center justify-between h-36 md:h-48 px-4 py-8 relative;
