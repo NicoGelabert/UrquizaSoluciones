@@ -235,7 +235,7 @@ body{
     .services{
         @apply my-12;
         #servicesbuttons{
-            @apply flex flex-col md:flex-row flex-wrap mx-auto gap-4 px-4 max-w-screen-lg;
+            @apply flex flex-col md:flex-row flex-wrap justify-center mx-auto gap-4 px-4 max-w-screen-lg;
             a{
                 @apply w-full md:w-2/5 rounded-3xl bg-cover bg-center;
                 transition: all 300ms;
