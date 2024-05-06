@@ -6,6 +6,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;

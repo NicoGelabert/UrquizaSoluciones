@@ -5,13 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title inertia>{{ config('app.name', 'Punto Sur Pastelería') }}</title>
+        <title inertia>{{ config('app.name') }}</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/img/puntosur.ico') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=albert-sans:200,300,500,700|battambang:100,300,400,700,900" rel="stylesheet" />
+        
+        <!-- reCaptcha -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

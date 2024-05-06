@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="md:w-1/2 mb-8">
-        <form id="subscriptionForm" action="{{ route('subscribe.store') }}" method="post">
+        <!-- <form id="subscriptionForm" action="{{ route('subscribe.store') }}" method="post">
             @csrf
             <div class="flex flex-col gap-6 w-full">
                 <input id="nameInput" type="text" name="name" placeholder="Su nombre" required class="account w-full">
@@ -41,6 +41,34 @@
         </div>
         <div id="errorMessage" style="display: none;">
             Falló el envío. Por favor intente de nuevo en unos minutos.
+        </div> -->
+        <form id="subscriptionForm" action="{{ route('subscribe.store') }}" method="post" class="flex gap-2 w-full">
+            @csrf
+            <div class="flex flex-col gap-6 w-full">
+                <input id="nameInput" type="text" name="name" placeholder="Su nombre" required class="account w-full">
+                <input id="emailInput" type="email" name="email" placeholder="Su correo electrónico" required class="account w-full">
+                <input id="phoneInput" type="tel" name="phone" placeholder="Su teléfono" required class="account w-full" pattern="[0-9]{9}">
+                <select name="area" required id="areaInput">
+                    <option value="">Zona del trabajo</option>
+                    <option value="Málaga">Málaga</option>
+                    <option value="Torremolinos">Torremolinos</option>
+                    <option value="Benalmádena">Benalmádena</option>
+                    <option value="Los Boliches">Los Boliches</option>
+                    <option value="Mijas">Mijas</option>
+                    <option value="Fuengirola">Fuengirola</option>
+                    <option value="Calahonda">Calahonda</option>
+                    <option value="Marbella">Marbella</option>
+                </select>
+                <textarea id="messageInput" name="message" placeholder="Déjenos un mensaje" rows="4" required class="account w-full"></textarea>
+                <div class="g-recaptcha" data-sitekey="6LcjHtMpAAAAAII4PAM3Vh2hT-0RDntu6B-3a_pH"></div>
+                <button id="subscribeBtn" type="submit" class="btn-primary">{{__('Subscribe')}}</button>
+            </div>
+        </form>
+        <div id="successMessage" style="display: none;">
+            {{__('Subscription successful!')}}
+        </div>
+        <div id="errorMessage" style="display: none;">
+            Subscription failed. Please try again.
         </div>
     </div>
 
@@ -55,7 +83,13 @@
         form.addEventListener('submit', async function(event) {
             event.preventDefault(); // Prevent default form submission behavior
 
+            const name = document.getElementById('nameInput').value;
             const email = document.getElementById('emailInput').value;
+            const phone = document.getElementById('phoneInput').value;
+            const area = document.getElementById('areaInput').value;
+            const message = document.getElementById('messageInput').value;
+            console.log(typeof name)
+            console.log(typeof area)
             try {
                 const response = await fetch('{{ route("subscribe.store") }}', {
                     method: 'POST',
@@ -63,7 +97,7 @@
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
-                    body: JSON.stringify({ email })
+                    body: JSON.stringify({ name, email, phone, area, message })
                 });
 
                 const data = await response.json();
